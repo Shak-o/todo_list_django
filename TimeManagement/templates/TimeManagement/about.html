@@ -1,0 +1,29 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>MLT-about</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+</head>
+<body>
+    <div class="header">
+        <h2>My lil TimeKeeper</h2>
+        <p>you are logged in as {{ user.username }}</p>
+        <a class="btn" href="/logout">Log out </a>
+        <a class="btn" href="/home">Home</a>
+    </div>
+
+    <div class="content">
+        <div class="about">
+            <h3>Hello!</h3>
+            <p>This site is designed for free use. Do not hesitate to report errors.</p>
+            <p>author:Shalva Turashvili</p>
+            <p>contact:shako.turashvili123@gmail.com</p>
+        </div>
+    </div>
+<script src="{% static 'javascript/scripts.js' %}"></script>
+</body>
+</html>

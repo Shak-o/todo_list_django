@@ -1,0 +1,146 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>MLT</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+</head>
+<body>
+    <div class="header">
+        <h2>My lil TimeKeeper</h2>
+        <p>you are logged in as {{ user.username }}</p>
+        <a class="btn" href="/logout">Log out </a>
+    </div>
+    {% if user.is_authenticated %}
+        <div class="arrow">
+        <img src="{% static '/img/next.png' %}" class="right" onclick="weeksl()">
+        <img src="{% static '/img/next.png' %}" class="left" alt="click" onclick="weeksr()">
+            <div class="add" onclick="test()">Create new task</div>
+        </div>
+    <div class="content">
+    <div class="scrolling-wrapper">
+        <div class="day_back active">
+            <div class="day_bord">
+                <div class="day">
+                    Monday
+                </div>
+            </div>
+
+        </div>
+        <div class="day_back active">
+            <div class="day_bord">
+                <div class="day">
+                    Tuesday
+                </div>
+            </div>
+
+        </div>
+       <div class="day_back active">
+            <div class="day_bord">
+                <div class="day">
+                    Wednesday
+                </div>
+            </div>
+
+        </div>
+       <div class="day_back active">
+            <div class="day_bord">
+                <div class="day">
+                    Thursday
+                </div>
+            </div>
+
+
+        </div>
+        <div class="day_back inactive">
+            <div class="day_bord">
+                <div class="day">
+                    Friday
+                </div>
+            </div>
+
+        </div>
+        <div class="day_back inactive">
+            <div class="day_bord">
+                <div class="day">
+                    Satudrday
+                </div>
+            </div>
+
+        </div>
+
+        <div class="day_back inactive">
+            <div class="day_bord">
+                <div class="day">
+                    Sunday
+                </div>
+            </div>
+
+        </div>
+    </div>
+        <div class="bg-model" style="display:flex">
+            <div class="model-content">
+                <a href="/home" style="text-decoration: none; color:black;">
+                <div class="close">
+                    +
+                </div>
+                </a>
+                <form method="POST" name="form" id="form">
+                    {% csrf_token %}
+                    <input type="text" id="name" name="name" class="inname" placeholder="Task name" required>
+                    <div class="selectorother">
+                        <div class="otheropt">Other</div>
+                        <div class="other">
+                            <label for="assignee">Assignee</label>
+                            <input type="text" id="assignee" name="assignee" placeholder="" required>
+                            <label for="time">Worked hours</label>
+                            <input type="text" id="worked_hours" name="worked_hours" placeholder="12h30m5s" required>
+                            <label for="date">Date</label>
+                            <input type="date" id="date" name="date" required>
+                        </div>
+                    </div>
+                    <div class="get_pos">
+                         <div class='select-day'>
+                              <select class="select-under-day" onchange="document.getElementById('category').value=this.options[this.selectedIndex].text; document.getElementById('idValue').value=this.options[this.selectedIndex].value;">
+                                  <option value="Dev">Dev</option>
+                                  <option value="Extra-dev">Extra-dev</option>
+                                  <option value="QA">QA</option>
+                                  <option value="Deffect">Deffect</option>
+                                  <option value="Bug">Bug</option>
+                                  <option value="Meeting">Meeting</option>
+                                  <option value="Free">Free</option>
+                              </select>
+                              <input type="text" name="category" id="category" placeholder="Select day" onfocus="this.select()" class='select-input' required>
+                              <input name="idValue" id="idValue" type="hidden">
+                            </div>
+                    </div>
+
+                    <div class="takepos">
+                            <div class='select-day'>
+                              <select class="select-under-day" onchange="document.getElementById('day').value=this.options[this.selectedIndex].text; document.getElementById('idValue').value=this.options[this.selectedIndex].value;">
+                                  <option value="Monday">Monday</option>
+                                  <option value="Tuesday">Tuesday</option>
+                                  <option value="Wednesday">Wednesday</option>
+                                  <option value="Thursday">Thursday</option>
+                                  <option value="Friday">Friday</option>
+                                  <option value="Saturday">Saturday</option>
+                                  <option value="Sunday">Sunday</option>
+                              </select>
+                              <input type="text" name="day" id="day" placeholder="Select day" onfocus="this.select()" class='select-input' required>
+                              <input name="idValue" id="idValue" type="hidden">
+                            </div>
+                    </div>
+                    <textarea name="Comment" cols="40" rows="5" id="comment" class="comment" placeholder="Leave comment here"></textarea>
+                    <button type="submit" class="btntask">Save</button>
+
+                </form>
+            </div>
+        </div>
+    </div>
+<script src="{% static 'javascript/scripts.js' %}"></script>
+{% endif %}
+</body>
+</html>

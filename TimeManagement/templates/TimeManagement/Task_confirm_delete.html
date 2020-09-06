@@ -1,0 +1,102 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>MLT</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+</head>
+<body>
+    <div class="header">
+        <h2>My lil TimeKeeper</h2>
+        <p>you are logged in as {{ user.username }}</p>
+        <a class="btn" href="/logout">Log out </a>
+    </div>
+    {% if user.is_authenticated %}
+        <div class="arrow">
+        <img src="{% static '/img/next.png' %}" class="right" onclick="weeksl()">
+        <img src="{% static '/img/next.png' %}" class="left" alt="click" onclick="weeksr()">
+            <div class="add" onclick="test()">Create new task</div>
+        </div>
+    <div class="content">
+    <div class="scrolling-wrapper">
+        <div class="day_back active">
+            <div class="day_bord">
+                <div class="day">
+                    Monday
+                </div>
+            </div>
+
+        </div>
+        <div class="day_back active">
+            <div class="day_bord">
+                <div class="day">
+                    Tuesday
+                </div>
+            </div>
+
+        </div>
+       <div class="day_back active">
+            <div class="day_bord">
+                <div class="day">
+                    Wednesday
+                </div>
+            </div>
+
+        </div>
+       <div class="day_back active">
+            <div class="day_bord">
+                <div class="day">
+                    Thursday
+                </div>
+            </div>
+
+
+        </div>
+        <div class="day_back inactive">
+            <div class="day_bord">
+                <div class="day">
+                    Friday
+                </div>
+            </div>
+
+        </div>
+        <div class="day_back inactive">
+            <div class="day_bord">
+                <div class="day">
+                    Satudrday
+                </div>
+            </div>
+
+        </div>
+
+        <div class="day_back inactive">
+            <div class="day_bord">
+                <div class="day">
+                    Sunday
+                </div>
+            </div>
+
+        </div>
+    </div>
+        <div class="delete_task_box" style="display:flex">
+            <div class="delete_task_back">
+                 <div class="close_del">
+                      <a href="/home" style="text-decoration: none; color:black;">
+                    +
+                      </a>
+                    </div>
+                <form method="POST" name="form" id="form">
+                    {% csrf_token %}
+                <h1>Delete Task - {{ object.name }}</h1>
+                <button type="submit" class="delbtn">Delete</button>
+                </form>
+            </div>
+        </div>
+    </div>
+<script src="{% static 'javascript/scripts.js' %}"></script>
+{% endif %}
+</body>
+</html>

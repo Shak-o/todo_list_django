@@ -1,0 +1,32 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>MLT</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/login_style.css' %}">
+</head>
+<body>
+    <div class="content">
+        {% if user.is_authenticated == False %}
+        <div class="log_box">
+            <form method="POST">
+                {% csrf_token %}
+                <label class="log" for="username">User</label>
+                <input type="text" id="username" name="username" required>
+                <label class="log" for="password" >Password</label>
+                <input type="password" id="password" name="password" required>
+                <button type="submit" class="btn">Log in</button>
+                <a class="btn" href="/reg">Registration</a>
+            </form>
+        </div>
+            {% else %}
+            <div class="log_box">
+            <label class="log">You are logged in as {{ user.username }}</label><br><br>
+            <a class="btn" href="/home">Home</a>
+            </div>
+        {% endif %}
+    </div>
+<script src="{% static 'javascript/scripts.js' %}"></script>
+</body>
+</html>
