@@ -124,6 +124,8 @@ button:hover {
     left: 30%;
     margin-left:-60px;
 }
+
+
 .day_back.active{
     background: #f8f8f8;
     margin: 20px 15px 5px 20px;
@@ -585,3 +587,76 @@ button:hover {
         display:none;
     }
 }
+
+@media only screen and (min-width:768px) {
+    .day_bord {
+        background-color: #d4f0e4;
+        width: 80%;
+        min-height: 12px;
+        text-align: center;
+        box-shadow: 3px 3px #cbcbcb;
+        position: relative;
+        left: 30%;
+        margin-left: -75px;
+    }
+    .task {
+        height:20%;
+        width:80%;
+        box-shadow:2px 2px 2px 2px #b4b4b4;
+        background-color:white;
+        position: relative;
+        left: 30%;
+        margin-left:-75px;
+        margin-top:10px;
+        text-align: center;
+        font-family: cursive;
+        color:black;
+    }
+    .add {
+        height: 95%;
+        width: 26%;
+        background-color: #d4f0e4;
+        color: black;
+        font-family: cursive;
+        font-size: 20px;
+        text-align: center;
+        cursor: pointer;
+        left: 32%;
+        position: relative;
+        box-shadow: 2px 2px 2px 2px #b4b4b4;
+    }
+    .delete_task {
+        position: absolute;
+        top: 0;
+        right: 10px;
+        margin-top: -25px;
+        font-size: 40px;
+        transform: rotate(45deg);
+        cursor: pointer;
+    }
+    .task_type {
+        position: absolute;
+        margin-bottom: 15px;
+        top: 0;
+        margin-top: 17px;
+        right: 0;
+        margin-right: 7px;
+    }
+    .task_name {
+        margin-bottom: 35%;
+        position: relative;
+        top: 50px;
+    }
+    .task_hours {
+        height: 16px;
+        width: 80px;
+        text-align: center;
+        background-color: #d4f0e4;
+        margin-bottom: 10px;
+        margin-top: 30px;
+        padding-bottom: 10px;
+        border-radius: 5px;
+        margin-left: 35%;
+    }
+ }
+
