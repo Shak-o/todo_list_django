@@ -588,7 +588,7 @@ button:hover {
     }
 }
 
-@media only screen and (min-width:769px) {
+@media only screen and (min-width:1366px) {
     .day_bord {
         background-color: #d4f0e4;
         width: 80%;
